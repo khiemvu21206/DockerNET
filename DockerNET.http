@@ -1,0 +1,6 @@
+@DockerNET_HostAddress = http://localhost:5059
+
+GET {{DockerNET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
