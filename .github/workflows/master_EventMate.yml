@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_897e7444b7eb4240859365452b9aea53 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_7007edfbdec64ba6859841359f960a8a }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_e796ebfffc534bce97c7089c919a0740 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_0764434007964189a5a21a609ad9b341 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_897e7444b7eb4240859365452b9aea53 }}/appsvc/staticsite:${{ github.sha }}
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_e796ebfffc534bce97c7089c919a0740 }}/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'EventMate'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_28147a2f17a44a2aa039f243831ad537 }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_897e7444b7eb4240859365452b9aea53 }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d4f2aca2651a4643abc10ff65029efa4 }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_e796ebfffc534bce97c7089c919a0740 }}/appsvc/staticsite:${{ github.sha }}'
